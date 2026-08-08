@@ -1,0 +1,6 @@
+
+
+find -E /Applications -regex '/Applications/[^/]+\.app/Contents/MacOS/.+' | xargs -I{} file_arch {}
+find -E /Applications/Utilities -regex '/Applications/Utilities/[^/]+\.app/Contents/MacOS/.+' | xargs -I{} file_arch {}
+find -E /System/Applications -regex '/System/Applications/[^/]+\.app/Contents/MacOS/.+' | xargs -I{} file_arch {}
+find -E /System/Applications/Utilities -regex '/System/Applications/Utilities/[^/]+\.app/Contents/MacOS/.+' | xargs -I{} file_arch {}

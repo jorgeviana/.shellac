@@ -1,0 +1,24 @@
+printf "$1 - "
+
+file "$1" | grep "universal" > /dev/null
+res=$?
+if [[ $res -eq 0 ]]; then
+  echo universal
+  exit 0
+fi
+
+file "$1" | grep "arm64" > /dev/null
+res=$?
+if [[ $res -eq 0 ]]; then
+  echo arm64
+  exit 0
+fi
+
+file "$1" | grep "x86_64" > /dev/null
+res=$?
+if [[ $res -eq 0 ]]; then
+  echo x86_64
+  exit 0
+fi
+
+echo unknown
