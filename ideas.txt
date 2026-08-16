@@ -1,0 +1,1 @@
+human first output: optimize scripts for human output, echo some useful info on the first lines, then also echo a switch to disable human friendly output. Now think, is this a good idea? The examples I know follow the opposite rule.
