@@ -1,0 +1,20 @@
+A="$1"
+B="$2"
+
+DIFF_TEMP_DIR="$TMPDIR/springy-diffy-stuff"
+mkdir -p $DIFF_TEMP_DIR
+
+rm -rf $DIFF_TEMP_DIR/a
+rm -rf $DIFF_TEMP_DIR/b
+
+spring init --build=maven --dependencies="$A" --extract $DIFF_TEMP_DIR/a
+spring init --build=maven --dependencies="$B" --extract $DIFF_TEMP_DIR/b
+
+cp $DIFF_TEMP_DIR/a/pom.xml $DIFF_TEMP_DIR/a.xml
+cp $DIFF_TEMP_DIR/b/pom.xml $DIFF_TEMP_DIR/b.xml
+
+rm -rf $DIFF_TEMP_DIR/a
+rm -rf $DIFF_TEMP_DIR/b
+
+idea diff $DIFF_TEMP_DIR/a.xml $DIFF_TEMP_DIR/b.xml 2> /dev/null
+echo "OK Computer!"
