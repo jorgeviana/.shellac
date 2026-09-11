@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+get_last_change() {
+    find ./bin ./my_tests -type f -exec stat -f '%m' {} \; 2>/dev/null |
+        sort -n |
+        tail -1
+}
+
+last_change=$(get_last_change)
+
+while true; do
+    sleep 1
+
+    current_change=$(get_last_change)
+
+    if [[ "$current_change" != "$last_change" ]]; then
+        ./tcr
+        last_change="$current_change"
+    fi
+done
