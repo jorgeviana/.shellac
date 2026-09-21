@@ -1,7 +1,7 @@
 
 #TODO create param for test file
 
-TEST_FILE="my_tests/spring_diff.test.bats"
+TEST_FILE="my_tests/spring-diff.test.bats"
 
 ./test/bats/bin/bats ${TEST_FILE} \
   && git add . && git commit -m "wip: ${TEST_FILE}" \
