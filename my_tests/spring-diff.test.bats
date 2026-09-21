@@ -2,7 +2,7 @@
   load '../test/test_helper/bats-support/load.bash'
   load '../test/test_helper/bats-assert/load.bash'
 
-  run ./bin/spring_diff "web" "web,devtools"
+  run ./bin/spring-diff "web" "web,devtools"
 
   assert_output --partial "OK Computer!"
 }

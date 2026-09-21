@@ -1,0 +1,2 @@
+
+spring init --list | grep "$1"
